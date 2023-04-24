@@ -35,7 +35,10 @@ public class PersonneController {
     }
 
     @PostMapping // POST -> /personnes
-    public String save(Personne personne, BindingResult result) {
+    public String save(@Valid @ModelAttribute(name = "element") Personne personne, BindingResult result) {
+        if (result.hasErrors()) {
+            return "personnes/byId";
+        }
         repository.save(personne);
         return "redirect:/personnes";
     }

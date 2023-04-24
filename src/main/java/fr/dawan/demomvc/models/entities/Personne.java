@@ -12,8 +12,10 @@ public class Personne implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 10)
+    @Size(min = 10, max = 10)
     private String telephone;
 
+    @NotBlank(message = "Le nom ne peut être vide")
     private String nom;
 
     public long getId() {

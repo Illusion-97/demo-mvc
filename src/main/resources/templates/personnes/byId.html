@@ -9,9 +9,11 @@
     <input type="hidden" name="id" th:field="*{id}"/>
     <label>Nom :
       <input type="text" name="nom" th:field="*{nom}"/>
+      <p th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p>
     </label>
     <label>Telephone :
       <input type="text" name="telephone" th:field="*{telephone}"/>
+      <p th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></p>
     </label>
     <input type="submit" value="Enregistrer">
   </form>
